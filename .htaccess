@@ -1,0 +1,43 @@
+# Use PHP5 as default
+#AddHandler application/x-httpd-php5 .php
+
+#Chuyen trang mac dinh ve trang Intro.html
+	
+#DirectoryIndex 404.html index.php 
+
+Options -Indexes
+
+<Files .htaccess>
+        order allow,deny
+        deny from all
+</Files>
+
+<Files *.ini>
+        order allow,deny
+        deny from all
+</Files>
+
+
+
+<IfModule mod_rewrite.c>
+	#Options +FollowSymlinks
+        	RewriteEngine on
+	#Rewritebase /
+		
+        	#RewriteCond %{HTTP_REFERER} !^$ [OR]
+        	#RewriteCond %{HTTP_REFERER} !^http://www.(vietmega\.)?net/.*$ [OR]
+        	#RewriteCond %{HTTP_REFERER} !^http://www.(vietmega\.)?net/.*$
+        	RewriteCond %{HTTP_HOST} ^www.vietmega.net$ [NC]
+			RewriteRule ^(.*)$ http://vietmega.net/$1 [R=301,L]
+
+        	# Hide 'index.php'
+        	RewriteCond %{REQUEST_FILENAME} !-f
+        	RewriteCond %{REQUEST_FILENAME} !-d
+        	RewriteRule ^(.*)$ index.php?$1 [L,QSA]
+			
+			ErrorDocument 404 /trang404.html
+			
+
+		
+
+</IfModule>
