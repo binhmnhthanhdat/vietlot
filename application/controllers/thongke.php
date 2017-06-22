@@ -10,12 +10,15 @@
 require_once APPPATH.'third_party/public_controller'.EXT;
 
 class Thongke extends Public_controller {
-
+        public $startdate_default = '';
 	function __construct() {
 		
 		parent:: __construct();	
 		$this->load->library('ajax_pagination');
-	}
+                $this->startdate_default= $this->db->query("SELECT ngayquayint FROM `soxo_mega` ORDER by ngayquayint desc LIMIT 1 OFFSET 29 ")->result()[0]->ngayquayint;
+                $this->startdate_default = date('d/m/Y', $this->startdate_default); 
+                        
+        }
 	
 	public function index() {
 	
@@ -70,9 +73,9 @@ class Thongke extends Public_controller {
         else
         {
            
-            $start_date=$this->util->ConvertDateXuoi(date("01/01/2017"));
+            $start_date=$this->util->ConvertDateXuoi(date($this->startdate_default));
             $end_date=$this->util->ConvertDateXuoi(date("d/m/Y"));
-            $data['start_date']=date("01/01/2017");
+            $data['start_date']=date($this->startdate_default);
             $data['end_date'] =date("d/m/Y");
     	    $data['thongkechitiet'] = $thongkedauso;
             
@@ -107,9 +110,9 @@ class Thongke extends Public_controller {
         else
         {
            
-            $start_date=$this->util->ConvertDateXuoi(date("01/01/2017"));
+            $start_date=$this->util->ConvertDateXuoi(date($this->startdate_default));
             $end_date=$this->util->ConvertDateXuoi(date("d/m/Y"));
-            $data['start_date']=date("01/01/2017");
+            $data['start_date']=date($this->startdate_default);
             $data['end_date'] =date("d/m/Y");
     	 
             $start_date_int= strtotime($start_date);
@@ -152,9 +155,9 @@ class Thongke extends Public_controller {
         else
         {
            
-            $start_date=$this->util->ConvertDateXuoi(date("01/01/2017"));
+            $start_date=$this->util->ConvertDateXuoi(date($this->startdate_default));
             $end_date=$this->util->ConvertDateXuoi(date("d/m/Y"));
-            $data['start_date']=date("01/01/2017");
+            $data['start_date']=date($this->startdate_default);
             $data['end_date'] =date("d/m/Y");
     	 
             $start_date_int= strtotime($start_date);
@@ -197,9 +200,9 @@ class Thongke extends Public_controller {
         else
         {
            
-            $start_date=$this->util->ConvertDateXuoi(date("01/01/2017"));
+            $start_date=$this->util->ConvertDateXuoi(date($this->startdate_default));
             $end_date=$this->util->ConvertDateXuoi(date("d/m/Y"));
-            $data['start_date']=date("01/01/2017");
+            $data['start_date']=date($this->startdate_default);
             $data['end_date'] =date("d/m/Y");
     	 
             $start_date_int= strtotime($start_date);
@@ -242,9 +245,9 @@ class Thongke extends Public_controller {
         else
         {
            
-            $start_date=$this->util->ConvertDateXuoi(date("01/01/2017"));
+            $start_date=$this->util->ConvertDateXuoi(date($this->startdate_default));
             $end_date=$this->util->ConvertDateXuoi(date("d/m/Y"));
-            $data['start_date']=date("01/01/2017");
+            $data['start_date']=date($this->startdate_default);
             $data['end_date'] =date("d/m/Y");
             $start_date_int= strtotime($start_date);
             $end_date_int= strtotime($end_date);
@@ -263,6 +266,7 @@ class Thongke extends Public_controller {
 	}
     public function thong_ke_tan_suat($tungay=null,$denngay=null,$sapxep=null) 
 	{
+
 		$data = array();
        // $this->output->enable_profiler(TRUE);
         $data['start_date']= $this->input->post('start_date');
@@ -310,9 +314,9 @@ class Thongke extends Public_controller {
         else
         {
            
-            $start_date=$this->util->ConvertDateXuoi(date("01/01/2017"));
+            $start_date=$this->util->ConvertDateXuoi(date($this->startdate_default));
             $end_date=$this->util->ConvertDateXuoi(date("d/m/Y"));
-            $data['start_date']=date("01/01/2017");
+            $data['start_date']=date($this->startdate_default);
             $data['end_date'] =date("d/m/Y");
     		$data['type'] = 1;
             $type=1;

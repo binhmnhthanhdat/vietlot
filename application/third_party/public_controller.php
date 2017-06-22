@@ -100,8 +100,8 @@ class Public_controller extends CI_Controller {
 	public function right() {
 	
 		$data = array();
-        $data['url_view'] = 'xem-tin/';
-        $data['news'] = $this->tin->getList(array('id','title','create_date', 'modify_date', 'image', 'intro'), array('active'=>1), array('id' => 'DESC'), null)->result();
+                $data['url_view'] = 'xem-tin/';
+                $data['news'] = $this->tin->getList(array('id','title','create_date', 'modify_date', 'image', 'intro'), null, array('id' => 'DESC'), null)->result();
 		return $this->load->view('common/right', $data, TRUE);	
 		
 	}

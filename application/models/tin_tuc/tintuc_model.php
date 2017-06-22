@@ -170,7 +170,7 @@ class Tintuc_model extends CI_Model
 		}
 		
 		$q = $this->db->get($this->table);
-		
+	//	echo $this->db->last_query();
 		return $q;
 		
 	}
