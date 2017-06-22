@@ -10,11 +10,12 @@
 require_once APPPATH.'third_party/public_controller'.EXT;
 
 class Ketquasoxo extends Public_controller {
-
+        public $startdate_default = '';
 	function __construct() {
 		
 		parent:: __construct();	
 		$this->load->library('ajax_pagination');
+                
 	}
 	
 	public function index() {
@@ -30,7 +31,8 @@ class Ketquasoxo extends Public_controller {
         $data['number'] = $this->input->post('number');
 	    $this->form_validation->set_rules('start_date', 'start_date', 'required');
         $this->form_validation->set_rules('end_date', 'end_date', 'required');
-        
+        $this->startdate_default= $this->db->query("SELECT ngayquayint FROM `soxo_mega` ORDER by ngayquayint desc LIMIT 1 OFFSET 29 ")->result()[0]->ngayquayint;
+        $this->startdate_default = date('d/m/Y', $this->startdate_default); 
         if($this->form_validation->run() == TRUE) 
         {
             //type =1S?p x?p theo t?n su?t 2S?p x?p theo th? t?
@@ -46,9 +48,9 @@ class Ketquasoxo extends Public_controller {
         else
         {
            
-            $start_date=$this->util->ConvertDateXuoi(date("01/01/2017"));
+            $start_date=$this->util->ConvertDateXuoi(date($this->startdate_default));
             $end_date=$this->util->ConvertDateXuoi(date("d/m/Y"));
-            $data['start_date']=date("01/01/2017");
+            $data['start_date']=date($this->startdate_default);
             $data['end_date'] =date("d/m/Y");
             $start_date_int= strtotime($start_date);
             $end_date_int= strtotime($end_date);
@@ -72,7 +74,8 @@ class Ketquasoxo extends Public_controller {
         $data['number'] = $this->input->post('number');
 	    $this->form_validation->set_rules('start_date', 'start_date', 'required');
         $this->form_validation->set_rules('end_date', 'end_date', 'required');
-        
+        $this->startdate_default= $this->db->query("SELECT ngayquayint FROM `soxo_max` ORDER by ngayquayint desc LIMIT 1 OFFSET 29 ")->result()[0]->ngayquayint;
+        $this->startdate_default = date('d/m/Y', $this->startdate_default); 
         if($this->form_validation->run() == TRUE) 
         {
             //type =1S?p x?p theo t?n su?t 2S?p x?p theo th? t?
@@ -88,9 +91,9 @@ class Ketquasoxo extends Public_controller {
         else
         {
            
-            $start_date=$this->util->ConvertDateXuoi(date("01/01/2017"));
+            $start_date=$this->util->ConvertDateXuoi(date($this->startdate_default));
             $end_date=$this->util->ConvertDateXuoi(date("d/m/Y"));
-            $data['start_date']=date("01/01/2017");
+            $data['start_date']=date($this->startdate_default);
             $data['end_date'] =date("d/m/Y");
             $start_date_int= strtotime($start_date);
             $end_date_int= strtotime($end_date);
