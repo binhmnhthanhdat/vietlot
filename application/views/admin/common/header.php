@@ -31,7 +31,7 @@
                     	<li><a href="<?=$this->index_url;?>admin/news">Tin tức</a></li>
                         <li><a href="<?=$this->index_url;?>admin/newsxoso">Tin tức xổ số</a></li>
                         <li><a href="<?=$this->index_url;?>admin/introduc">Giới thiệu</a></li>
-                         
+                         <li><a href="<?=$this->index_url;?>admin/slide">Quảng cáo</a></li>
                     </ul>
                 </li>
                 
