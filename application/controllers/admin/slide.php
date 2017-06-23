@@ -91,63 +91,22 @@ class Slide extends Admin_controller {
 	
 	
 	public function add_edit() {
-		
-		
+
 		$_id = $this->uri->segment(4);
 		$data['render_path'] = array('Admin' => base_url().'admin/trangchu/home', 'Danh sách quảng cáo' => base_url().'admin/slide');
 		$data['heading_title'] = 'Tạo - Cập nhật quảng cáo';
 		$data['action'] = base_url().'admin/slide/add_edit';
-		
 		$this->form_validation->set_rules('name', 'Name', 'trim|required');
-	
-
-		//$this->form_validation->set_rules('ord', 'Sap xep', 'trim|required');
-		//$this->form_validation->set_rules('', 'Name', 'trim|required');
-		//$this->form_validation->set_rules('show_home', 'Show home', '');
-		
 		$data['name'] = $this->input->post('name');
 		$data['active'] = ($this->input->post('active') == 'on') ? 1 : 0;
 		$data['ord'] = $this->input->post('ord');
 		$data['url'] = $this->input->post('url');
 		$data['position'] = $this->input->post('position');
-		
+		$data['img'] = $this->input->post('img');
 		$data['contents'] = $this->input->post('detail');	
-		$id = (int)$this->input->post('id');
-		$oldImage = $this->input->post('oldImage');
+                $id = (int)$this->input->post('id');
 		if($this->form_validation->run() == TRUE) {
-			if($_FILES['userfile']['name'] !='')
-			{
-				$file_field = $_FILES['userfile']['name'];
-				$file_name_field = 'userfile';
-				$upload_path = $this->config->item('upload_news_dir');
-				
-				if($result = $this->util->upload($upload_path, 1024, 1024, $file_field, $file_name_field))
-				{
-					$filepath = $result['full_path'];
-					$filename = $result['file_name'];
-					$data['image'] =  $upload_path . $filename;
-					 
-					// Delete image old if it's exist
-					if($oldImage !='')
-					{
-						$this->deleteFile($oldImage);
-					}
-				}
-				
-			} else {
-				if($oldImage !='') {
-					$data['image'] = $oldImage;
-				} else {
-					$data['image'] = '';
-				}
-			} // End upload file
-                        
-			 
-			
-
-
 			if($id && $id !='') {
-			
 				if($this->slide->update($id,$data)) {
 					$this->session->set_flashdata('warning', 'Cập nhật Danh mục thành công');
 					redirect('admin/slide/add_edit/'.$id);
@@ -168,12 +127,8 @@ class Slide extends Admin_controller {
 			}
 			
 		}
-		
 		if($_id !='') $data['article'] = $this->slide->get_by_id($_id);
-		//$data['root'] = $this->slide->get_root_slide(0);
-		
 		$this->render($this->load->view('admin/slide/slide_form', $data, TRUE));
-		
 	}
 	
 	

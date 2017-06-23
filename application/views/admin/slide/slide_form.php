@@ -65,9 +65,15 @@
                                 <tr>
                                   <td width="169" align="left"><label>Hình ảnh:</label></td>
                                     <td width="922">
-                                         <?    echo form_upload('userfile'); ?> <br>
+                                        
+                                        <?php if(@$article->img !='') :?>
+                                        <input name="img" type="text" id="img" value="<?php echo @$article->img;?>" size="100" />
+                                        <?php else : ?>
+                                        <input name="img" type="text" id="img" value="<?php echo set_value('img');?>" size="100" />
+                                        <?php endif;?>
+                                        <br>
                                         <?php if(@$article->img !='') : ?>
-                                        <img src="<?=base_url();?><?=@@$article->img;?>" width="200" height="200">
+                                        <img src="<?=@@$article->img;?>" width="200" height="200">
                                         <?php endif;?>   
                                     </td>
                                 </tr>

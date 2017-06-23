@@ -84,7 +84,7 @@ $thuquay =  strtolower(date("l", strtotime($day)));
 <?php if(!empty($slide)) : ?>
 <?php foreach($slide as $resultslide) : ?>
 <a href="<?=$resultslide->url;?>" style="display:block;margin-bottom:10px" target="_blank" title="<?=$resultslide->name;?>">
-    <img src="<?php echo base_url();?><?=$resultslide->img;?>" alt="<?=$resultslide->contents;?>"  class="red-border img-responsive">
+    <img src="<?=$resultslide->img;?>" alt="<?=$resultslide->contents;?>"  class="red-border img-responsive">
 </a> 
 <?php endforeach;?>
 <?php endif;?>      

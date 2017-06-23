@@ -24,7 +24,7 @@ class slide_model extends CI_Model {
 		$this->db->set('name', $data['name']);
 		$this->db->set('contents', $data['contents']);
 		$this->db->set('url', $data['url']);
-		$this->db->set('img', $data['image']);
+		$this->db->set('img', $data['img']);
 		$this->db->set('position', $data['position']);
 		$this->db->set('active', $data['active']);
 		$this->db->set('ord', $data['ord']);
@@ -41,7 +41,7 @@ class slide_model extends CI_Model {
 		$this->db->set('name', $data['name']);
 		$this->db->set('contents', $data['contents']);
 		$this->db->set('url', $data['url']);
-		$this->db->set('img', $data['image']);
+		$this->db->set('img', $data['img']);
                 $this->db->set('position', $data['position']);
 		$this->db->set('active', $data['active']);
 		$this->db->set('ord', $data['ord']);
