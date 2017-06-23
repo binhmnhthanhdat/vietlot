@@ -78,6 +78,7 @@ class Slide extends Admin_controller {
 					'url'		=> $result->url,
 					'ord'		=> $result->ord,
 					'active'		=> $result->active,
+					'position'		=> $result->position,
 					'url_edit'	=> base_url().'admin/slide/add_edit/'.$result->id,
 					'url_del'	=> base_url().'admin/slide/delete/'.$result->id
 				);
@@ -108,6 +109,7 @@ class Slide extends Admin_controller {
 		$data['active'] = ($this->input->post('active') == 'on') ? 1 : 0;
 		$data['ord'] = $this->input->post('ord');
 		$data['url'] = $this->input->post('url');
+		$data['position'] = $this->input->post('position');
 		
 		$data['contents'] = $this->input->post('detail');	
 		$id = (int)$this->input->post('id');

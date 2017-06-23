@@ -27,9 +27,10 @@
                                  
                                 <td class="left"><a href="#">Hình ảnh</a></td>
                                  <td class="left"><a href="#">Nội dung</a></td>
-                                <td class="left"><a href="#">Dường dẫn</a></td>
+                                <td class="left"><a href="#">Đường dẫn</a></td>
                                 <td class="left"><a href="#">Thứ tự</a></td>
-                                 <td class="left"><a href="#">Trạng thái</a></td>
+                                <td class="left"><a href="#">Vị trí</a></td>
+                                <td class="left"><a href="#">Trạng thái</a></td>
                                 <td class="right">Action</td>
                             </tr>
                         </thead>
@@ -44,9 +45,14 @@
                                 
                                  <td class="left" style="width: 10%;"><img src="<? echo base_url().$user['img'];?>" alt="tin tuc" width="100" height="100"/></td>
                                  
-                                 <td class="left" style="width: 35%;"><?=$user['contents'];?></td>
+                                 <td class="left" style="width: 25%;"><?=$user['contents'];?></td>
                                   <td class="left" style="width: 10%;"><?=$user['url'];?></td>
                                    <td class="left" style="width: 10%;"><? echo $user['ord']; ?></td>
+                                   <td class="left" style="width: 10%;"><?php 
+                                       if($user['position'] == 1) echo "Left"; 
+                                       if($user['position'] == 2) echo "Center"; 
+                                       if($user['position'] == 3) echo "Right"; 
+                                     ?></td>
                                  <td class="right" style="width: 10%;">
                                 	<?if($user['active']==1)
                                 		echo "Hiển thị";

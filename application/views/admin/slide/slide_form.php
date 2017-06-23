@@ -115,6 +115,18 @@
                                         <?=form_error('ord');?>
                                     </td>
                                 </tr>
+                                
+                                <tr>
+                                  <td width="169" align="left"><label>Vị trí:</label></td>
+                                    <td width="922">
+                                    	<select name="position">
+                                               <option value="1" <?php if(@$article->position == 1) echo "selected";?>>Left</option>
+                                               <option value="2" <?php if(@$article->position == 2) echo "selected";?>>Center</option>
+                                               <option value="3" <?php if(@$article->position == 3) echo "selected";?>>Right</option>
+                                        </select>
+                                    	<?=form_error('position');?>
+                                	</td>
+                                </tr>
                                 <tr>
                                   <td align="left"><label>Trạng thái:</label><br /><span class="help">Nếu muốn hiển thị thì Click chọn</span></td>
                                     <td>
