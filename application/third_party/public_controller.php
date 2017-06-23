@@ -25,6 +25,7 @@ class Public_controller extends CI_Controller {
 		
 		$this->load->model('other/setting_model', 'setting');
 		$this->load->model('product/category_model', 'category');
+		$this->load->model('slide/slide_model', 'slide');
 	 
 		$this->load->model('tin_tuc/tintuc_model', 'tin');
         $this->load->model('tin_tuc/tintucxoso_model', 'tinxoso');
@@ -92,6 +93,7 @@ class Public_controller extends CI_Controller {
 	public function left() {
 		
 		$data = array();
+                $data['slide'] =  $this->slide->get_slide_where(array('position' => 1,'active' => 1), array('ord' => 'asc'), null)->result();
 		return $this->load->view('common/left', $data, TRUE);	
 	
 	}
@@ -102,7 +104,8 @@ class Public_controller extends CI_Controller {
 		$data = array();
                 $data['url_view'] = 'xem-tin/';
                 $data['news'] = $this->tin->getList(array('id','title','create_date', 'modify_date', 'image', 'intro'), null, array('id' => 'DESC'), null)->result();
-		return $this->load->view('common/right', $data, TRUE);	
+		$data['slide'] = $this->slide->get_slide_where(array('position' => 3,'active' => 1), array('ord' => 'asc'), null)->result();
+                return $this->load->view('common/right', $data, TRUE);	
 		
 	}
 	

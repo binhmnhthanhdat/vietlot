@@ -113,6 +113,11 @@
         </ul>
      </div>
   </div>
- <a href="http://vietmega.net/xem-tin/72-choi-vietlott-mien-phi-trung-the-cao-khung-cung-vietmega-net.html" target="_blank" title="Xổ số tự chọn Max4d">
-<img src="<?php echo base_url();?>asset/images/right1.png" alt="chơi vietlott nhận thưởng vietmega.net"  class="red-border img-responsive">
+<?php if(!empty($slide)) : ?>
+<?php foreach($slide as $resultslide) : ?>
+<a href="<?=$resultslide->url;?>" style="display:block;margin-bottom:10px" target="_blank" title="<?=$resultslide->name;?>">
+    <img src="<?php echo base_url();?><?=$resultslide->img;?>" alt="<?=$resultslide->contents;?>"  class="red-border img-responsive">
 </a> 
+<?php endforeach;?>
+<?php endif;?>
+ 

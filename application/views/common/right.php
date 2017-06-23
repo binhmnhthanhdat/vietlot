@@ -80,21 +80,11 @@ $thuquay =  strtolower(date("l", strtotime($day)));
  </ul>
  </div>
 </div>
-<div class="panel panel-default">
- <div class="panel-heading">
-    <h4><i class="fa fa-newspaper-o"></i> Tin vietlott xem nhiều nhất</h4>
- </div>
- <div class="panel-body">
- <ul class="news-box">
-  <li><a href="http://vietmega.net/xem-tin/72-choi-vietlott-mien-phi-trung-the-cao-khung-cung-vietmega-net.html" target="	_blank">Chơi vietlott miễn phí - Trúng thẻ cào khủng cùng vietmega.net</a></li>
-  <li><a href="http://vietmega.net/xem-tin/67-phat-tien-den-20trieu-doi-voi-hanh-vi-ban-ve-dao.html" target="	_blank">PHẠT TIỀN đến 20 triệu đối với hành vi bán vé dạo</a></li>
-  
- </ul>
- </div>
-</div>
-<a href="http://vietmega.net/xem-tin/72-choi-vietlott-mien-phi-trung-the-cao-khung-cung-vietmega-net.html" target="	_blank" title="Xổ số tự chọn Max4d">
-<img src="<?php echo base_url();?>asset/images/right1.png" alt="chơi vietlott nhận thưởng vietmega.net"  class="red-border img-responsive">
+ 
+<?php if(!empty($slide)) : ?>
+<?php foreach($slide as $resultslide) : ?>
+<a href="<?=$resultslide->url;?>" style="display:block;margin-bottom:10px" target="_blank" title="<?=$resultslide->name;?>">
+    <img src="<?php echo base_url();?><?=$resultslide->img;?>" alt="<?=$resultslide->contents;?>"  class="red-border img-responsive">
 </a> 
-
-<div class="fb-page" data-href="https://www.facebook.com/xosovietmega/" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/xosovietmega/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/xosovietmega/">Vietmega.net</a></blockquote></div>
-        
+<?php endforeach;?>
+<?php endif;?>      

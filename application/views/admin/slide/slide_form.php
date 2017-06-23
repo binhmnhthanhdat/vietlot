@@ -61,14 +61,6 @@
                                     	<?=form_error('name');?>
                                 	</td>
                                 </tr>
-                                <?
-                 //       'id' 		=> $result->id,
-//					'name' 		=> $result->name,
-//					'contents'		=> $result->contents,
-//					'img'		=> $result->img,
-//					'url'		=> $result->url,
-//					'ord'		=> $result->ord,
-//					'active'		=> $result->active,\?>
                                 
                                 <tr>
                                   <td width="169" align="left"><label>Hình ảnh:</label></td>
