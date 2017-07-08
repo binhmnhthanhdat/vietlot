@@ -4,16 +4,16 @@
 	  .row-ct-2 {padding: 5px 18px 10px;background: #ffffff url('asset/images/bg-jackpot-label.png') no-repeat right bottom;border: 1px solid #ed1d27;text-align: center;}
 
   .row-ct-2 .ico-vietlott {width: 130px;margin-right:6px;}
- 
- 
+
+
   .row-ct-2 .ico-vietlott img {max-width:60%}
-  
+
     .countdown-box .countdown span,   .countdown-box .title {color: #000;font-size: 15px;}
   .countdown-box .countdown span {margin-top:0}
   .countdown-box .title {margin-bottom: 3px;margin-top: 6px;font-weight: 500;}
- 
+
   .countdown-box .countdown .box-number {font-size:18px; color:#fff}
-  
+
   .countdown-box .title {color: #fff;margin-top: 15px;font-size: 16px;}
 .countdown-box .countdown ul {margin:0; padding:0}
 .countdown-box .countdown ul li {list-style:none; display:inline-block; color:#fff;}
@@ -23,12 +23,12 @@
     color: #000;
     font-size: 15px;
 }
-  
-  
-  
+
+
+
 -->
 </style>
-<div id="mega645detail fl-l"></div>	
+<div id="mega645detail fl-l"></div>
   <div class="panel panel-default">
      <div class="panel-heading">
         <h4><i class="fa fa-bar-chart"></i> Thống kê xổ số Mega 6/45</h4>
@@ -39,7 +39,7 @@
               <a href="<?php echo base_url();?>mega-6-45/so-ket-qua">
               <i class="fa fa-angle-right" aria-hidden="true"></i> Sổ kết quả
               </a>
-           </li>		
+           </li>
            <li>
               <a href="<?php echo base_url();?>mega-6-45/thong-ke-tan-suat">
               <i class="fa fa-angle-right" aria-hidden="true"></i> Thống kê tần suất
@@ -113,11 +113,46 @@
         </ul>
      </div>
   </div>
-<?php if(!empty($slide)) : ?>
-<?php foreach($slide as $resultslide) : ?>
+<?php
+if(!empty($slide)) : ?>
+<?php foreach($slide as $resultslide) :
+    if($resultslide->ord==1) {
+?>
 <a href="<?=$resultslide->url;?>" style="display:block;margin-bottom:10px" target="_blank" title="<?=$resultslide->name;?>">
     <img src="<?=$resultslide->img;?>" alt="<?=$resultslide->contents;?>"  class="red-border img-responsive">
-</a> 
-<?php endforeach;?>
+</a>
+<?php
+    }
+endforeach;?>
 <?php endif;?>
- 
+<div>
+
+</div>
+<?php if(!empty($slide)) : ?>
+<?php foreach($slide as $resultslide) :
+    if($resultslide->ord==2) {
+
+?>
+<a href="<?=$resultslide->url;?>" style="display:block;margin-bottom:10px" target="_blank" title="<?=$resultslide->name;?>">
+    <img src="<?=$resultslide->img;?>" alt="<?=$resultslide->contents;?>"  class="red-border img-responsive">
+</a>
+<?php  }
+endforeach;?>
+<?php endif;?>
+<div>
+
+</div>
+<?php if(!empty($slide)) :
+
+?>
+<?php foreach($slide as $resultslide) :
+        if($resultslide->ord==3) { ?>
+<a href="<?=$resultslide->url;?>" style="display:block;margin-bottom:10px" target="_blank" title="<?=$resultslide->name;?>">
+    <img src="<?=$resultslide->img;?>" alt="<?=$resultslide->contents;?>"  class="red-border img-responsive">
+</a>
+<?php }
+endforeach;?>
+<?php endif;?>
+<div>
+
+</div>

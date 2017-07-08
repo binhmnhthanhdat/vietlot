@@ -1,10 +1,10 @@
-<?php 
+<?php
 
 $day=date("Y-m-d");
 $thuquay =  strtolower(date("l", strtotime($day)));
- 
+
 	switch ($thuquay) {
-		 
+
         case "sunday":
             $homnay="Mega 6/45";
             $ngaymai="Không có";
@@ -17,7 +17,7 @@ $thuquay =  strtolower(date("l", strtotime($day)));
            $homnay="Max 4D";
            $ngaymai="Mega 6/45";
             break;
-        
+
         case "wednesday":
            $homnay="Mega 6/45";
            $ngaymai="Max 4D";
@@ -44,7 +44,7 @@ $thuquay =  strtolower(date("l", strtotime($day)));
 	<div class="panel-heading">
 		<h4><i class="fa fa-random" aria-hidden="true"></i> Lịch mở thưởng Vietlott</h4>
 	</div>
-	
+
 	<div class="panel-body pad0">
 		<div class="table-responsive">
 			<table class="table table-striped table-bordered table-hover mar0">
@@ -62,17 +62,17 @@ $thuquay =  strtolower(date("l", strtotime($day)));
 				</tbody>
 			</table>
 		</div>
-		
+
 	</div>
-	
-</div> 
+
+</div>
 <div class="panel panel-default">
  <div class="panel-heading">
     <h4><i class="fa fa-newspaper-o"></i> Tin tức Vietlott mới nhất</h4>
  </div>
  <div class="panel-body">
  <ul class="news-box">
-  <?php if(!empty($news)) : ?> 
+  <?php if(!empty($news)) : ?>
       <?php foreach($news as $new) : ?>
  		<li><a href="<?=site_url($url_view . $new->id .'-'. $this->util->alias($new->title));?>"><?=$new->title;?></a></li>
       <?php endforeach;?>
@@ -80,11 +80,46 @@ $thuquay =  strtolower(date("l", strtotime($day)));
  </ul>
  </div>
 </div>
- 
-<?php if(!empty($slide)) : ?>
-<?php foreach($slide as $resultslide) : ?>
+<?php
+if(!empty($slide)) : ?>
+<?php foreach($slide as $resultslide) :
+    if($resultslide->ord==1) {
+?>
 <a href="<?=$resultslide->url;?>" style="display:block;margin-bottom:10px" target="_blank" title="<?=$resultslide->name;?>">
     <img src="<?=$resultslide->img;?>" alt="<?=$resultslide->contents;?>"  class="red-border img-responsive">
-</a> 
-<?php endforeach;?>
-<?php endif;?>      
+</a>
+<?php
+    }
+endforeach;?>
+<?php endif;?>
+<div>
+
+</div>
+<?php if(!empty($slide)) : ?>
+<?php foreach($slide as $resultslide) :
+    if($resultslide->ord==2) {
+
+?>
+<a href="<?=$resultslide->url;?>" style="display:block;margin-bottom:10px" target="_blank" title="<?=$resultslide->name;?>">
+    <img src="<?=$resultslide->img;?>" alt="<?=$resultslide->contents;?>"  class="red-border img-responsive">
+</a>
+<?php  }
+endforeach;?>
+<?php endif;?>
+<div>
+
+</div>
+<?php if(!empty($slide)) :
+
+?>
+<?php foreach($slide as $resultslide) :
+        if($resultslide->ord==3) { ?>
+<a href="<?=$resultslide->url;?>" style="display:block;margin-bottom:10px" target="_blank" title="<?=$resultslide->name;?>">
+    <img src="<?=$resultslide->img;?>" alt="<?=$resultslide->contents;?>"  class="red-border img-responsive">
+</a>
+<?php }
+endforeach;?>
+<?php endif;?>
+<div>
+
+</div>
